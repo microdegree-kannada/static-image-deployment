@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-scan
+  labels:
+    app: python-scan
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-scan
+  template:
+    metadata:
+      labels:
+        app: python-scan
+    spec:
+      containers:
+      - name: python-scan
+        image: 518572/python-scan:v1
+        ports:
+        - containerPort: 80
